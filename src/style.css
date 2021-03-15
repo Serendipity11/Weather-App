@@ -58,8 +58,7 @@
 }
 
 body {
-  background: url(src/pic.jpg), no-repeat;
-
+  background: url(/src/pic.jpg), no-repeat;
   background-size: cover;
   margin-top: 0;
   width: 100%;
