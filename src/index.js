@@ -89,31 +89,31 @@ function getWeekForecast() {
   let apiUrl = "https://api.openweathermap.org/data/2.5/forecast?";
   let units = "imperial";
   axios
-    .get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${units}&cnt=35`)
+    .get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${units}`)
     .then(displayWeek);
 }
 
 function displayWeek(res) {
   console.log(res);
-  let firstDate = new Date(res.data.list[2].dt * 1000);
+  let firstDate = new Date(res.data.list[4].dt * 1000);
   let firstDay = firstDate.getDay();
-  console.log(firstDay, res.data.list[2].dt_txt);
+  console.log(firstDay, res.data.list[4].dt_txt);
 
-  let secondDate = new Date(res.data.list[9].dt * 1000);
+  let secondDate = new Date(res.data.list[12].dt * 1000);
   let secondDay = secondDate.getDay();
-  console.log(secondDay, res.data.list[9].dt_txt);
+  console.log(secondDay, res.data.list[12].dt_txt);
 
-  let thirdDate = new Date(res.data.list[17].dt * 1000);
+  let thirdDate = new Date(res.data.list[20].dt * 1000);
   let thirdDay = thirdDate.getDay();
-  console.log(thirdDay, res.data.list[17].dt_txt);
+  console.log(thirdDay, res.data.list[20].dt_txt);
 
-  let forthDate = new Date(res.data.list[25].dt * 1000);
+  let forthDate = new Date(res.data.list[28].dt * 1000);
   let forthDay = forthDate.getDay();
-  console.log(forthDay, res.data.list[25].dt_txt);
+  console.log(forthDay, res.data.list[28].dt_txt);
 
-  let fifthDate = new Date(res.data.list[33].dt * 1000);
+  let fifthDate = new Date(res.data.list[36].dt * 1000);
   let fifthDay = fifthDate.getDay();
-  console.log(fifthDay, res.data.list[33].dt_txt);
+  console.log(fifthDay, res.data.list[36].dt_txt);
 
   let days = [
     "Sunday",
