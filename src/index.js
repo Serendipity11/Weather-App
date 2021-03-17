@@ -71,6 +71,16 @@ let dayThree = document.querySelector("#third-day");
 let dayFour = document.querySelector("#forth-day");
 let dayFive = document.querySelector("#fifth-day");
 
+function getWeekForecast() {
+  cityName = searchInput.value;
+  let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
+  let apiUrl = "https://api.openweathermap.org/data/2.5/forecast?";
+  let units = "imperial";
+  axios
+    .get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${units}&cnt=35`)
+    .then(displayWeek);
+}
+
 // Current Location
 let currentLocation = document.querySelector(".location");
 
