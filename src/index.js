@@ -64,6 +64,13 @@ function getWeather(res) {
   city.innerHTML = res.data.name;
 }
 
+// Get week information
+let dayOne = document.querySelector("#first-day");
+let dayTwo = document.querySelector("#second-day");
+let dayThree = document.querySelector("#third-day");
+let dayFour = document.querySelector("#forth-day");
+let dayFive = document.querySelector("#fifth-day");
+
 // Current Location
 let currentLocation = document.querySelector(".location");
 
