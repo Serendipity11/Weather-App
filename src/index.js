@@ -62,6 +62,7 @@ function getWeather(res) {
   pressure.innerHTML = Math.round(res.data.main.pressure);
   wind.innerHTML = Math.round(res.data.wind.speed);
   city.innerHTML = res.data.name;
+  getWeekForecast();
 }
 
 // Get week information
