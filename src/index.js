@@ -131,11 +131,33 @@ function displayWeek(res) {
   dayFour.innerHTML = days[forthDay];
   dayFive.innerHTML = days[fifthDay];
 
-  oneTemp.innerHTML = Math.round(res.data.list[2].main.temp);
-  twoTemp.innerHTML = Math.round(res.data.list[9].main.temp);
-  threeTemp.innerHTML = Math.round(res.data.list[17].main.temp);
-  fourTemp.innerHTML = Math.round(res.data.list[25].main.temp);
-  fiveTemp.innerHTML = Math.round(res.data.list[33].main.temp);
+  oneTemp.innerHTML = Math.round(res.data.list[4].main.temp);
+  twoTemp.innerHTML = Math.round(res.data.list[12].main.temp);
+  threeTemp.innerHTML = Math.round(res.data.list[20].main.temp);
+  fourTemp.innerHTML = Math.round(res.data.list[28].main.temp);
+  fiveTemp.innerHTML = Math.round(res.data.list[36].main.temp);
+
+  oneIcon.src =
+    "http://openweathermap.org/img/w/" +
+    res.data.list[4].weather[0].icon +
+    ".png";
+
+  twoIcon.src =
+    "http://openweathermap.org/img/w/" +
+    res.data.list[12].weather[0].icon +
+    ".png";
+  threeIcon.src =
+    "http://openweathermap.org/img/w/" +
+    res.data.list[20].weather[0].icon +
+    ".png";
+  fourIcon.src =
+    "http://openweathermap.org/img/w/" +
+    res.data.list[28].weather[0].icon +
+    ".png";
+  fiveIcon.src =
+    "http://openweathermap.org/img/w/" +
+    res.data.list[36].weather[0].icon +
+    ".png";
 }
 
 // Current Location
