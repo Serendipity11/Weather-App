@@ -25,7 +25,21 @@ function displayTime() {
 displayTime();
 
 // Default city, weather + week
-function defaultWeather() {}
+let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
+let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+let units = "imperial";
+function defaultWeather() {
+  axios
+    .get(`${apiUrl}q=new york&appid=${apiKey}&units=${units}`)
+    .then(getDefaultWeather);
+}
+function getDefaultWeather(res) {
+  console.log(res);
+  sky.innerHTML = res.data.weather[0].main;
+  let iconcode = res.data.weather[0].icon;
+}
+
+defaultWeather();
 
 // Search engine
 let city = document.querySelector("#city");
@@ -33,13 +47,8 @@ let searchInput = document.querySelector("#search");
 let cityName = searchInput.value;
 let submit = document.querySelector("#search-button");
 
-let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
-let units = "imperial";
-
 function searchCity(event) {
   event.preventDefault();
-
   cityName = searchInput.value;
   console.log(cityName);
   axios
