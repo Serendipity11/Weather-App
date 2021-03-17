@@ -81,6 +81,31 @@ function getWeekForecast() {
     .then(displayWeek);
 }
 
+function displayWeek(res) {
+  console.log(res);
+  let firstDate = new Date(res.data.list[2].dt * 1000);
+  let firstDay = firstDate.getDay();
+  console.log(firstDay, res.data.list[2].dt_txt);
+
+  let secondDate = new Date(res.data.list[9].dt * 1000);
+  let secondDay = secondDate.getDay();
+  console.log(secondDay, res.data.list[9].dt_txt);
+
+  let thirdDate = new Date(res.data.list[17].dt * 1000);
+  let thirdDay = thirdDate.getDay();
+  console.log(thirdDay, res.data.list[17].dt_txt);
+
+  let forthDate = new Date(res.data.list[25].dt * 1000);
+  let forthDay = forthDate.getDay();
+  console.log(forthDay, res.data.list[25].dt_txt);
+
+  let fifthDate = new Date(res.data.list[33].dt * 1000);
+  let fifthDay = fifthDate.getDay();
+  console.log(fifthDay, res.data.list[33].dt_txt);
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+}
+
 // Current Location
 let currentLocation = document.querySelector(".location");
 
