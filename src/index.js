@@ -24,20 +24,24 @@ function displayTime() {
 }
 displayTime();
 
+// Default city, weather + week
+function defaultWeather() {}
+
 // Search engine
 let city = document.querySelector("#city");
 let searchInput = document.querySelector("#search");
 let cityName = searchInput.value;
 let submit = document.querySelector("#search-button");
 
+let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
+let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+let units = "imperial";
+
 function searchCity(event) {
   event.preventDefault();
 
   cityName = searchInput.value;
   console.log(cityName);
-  let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
-  let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
-  let units = "imperial";
   axios
     .get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${units}`)
     .then(getWeather);
@@ -86,9 +90,8 @@ let fiveIcon = document.querySelector("#five-icon");
 
 function getWeekForecast() {
   cityName = searchInput.value;
-  let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
   let apiUrl = "https://api.openweathermap.org/data/2.5/forecast?";
-  let units = "imperial";
+
   axios
     .get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${units}`)
     .then(displayWeek);
