@@ -71,6 +71,18 @@ let dayThree = document.querySelector("#third-day");
 let dayFour = document.querySelector("#forth-day");
 let dayFive = document.querySelector("#fifth-day");
 
+let oneTemp = document.querySelector("#first-temp");
+let twoTemp = document.querySelector("#second-temp");
+let threeTemp = document.querySelector("#third-temp");
+let fourTemp = document.querySelector("#forth-temp");
+let fiveTemp = document.querySelector("#fifth-temp");
+
+let oneIcon = document.querySelector("#one-icon");
+let twoIcon = document.querySelector("#two-icon");
+let threeIcon = document.querySelector("#three-icon");
+let fourIcon = document.querySelector("#four-icon");
+let fiveIcon = document.querySelector("#five-icon");
+
 function getWeekForecast() {
   cityName = searchInput.value;
   let apiKey = "9f7b34ce1d4954adbe45333199ef6c7a";
