@@ -110,6 +110,12 @@ function displayWeek(res) {
   dayThree.innerHTML = days[thirdDay];
   dayFour.innerHTML = days[forthDay];
   dayFive.innerHTML = days[fifthDay];
+
+  oneTemp.innerHTML = Math.round(res.data.list[2].main.temp);
+  twoTemp.innerHTML = Math.round(res.data.list[9].main.temp);
+  threeTemp.innerHTML = Math.round(res.data.list[17].main.temp);
+  fourTemp.innerHTML = Math.round(res.data.list[25].main.temp);
+  fiveTemp.innerHTML = Math.round(res.data.list[33].main.temp);
 }
 
 // Current Location
