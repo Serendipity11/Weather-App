@@ -103,7 +103,15 @@ function displayWeek(res) {
   let fifthDay = fifthDate.getDay();
   console.log(fifthDay, res.data.list[33].dt_txt);
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tueday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Satursday",
+  ];
 
   dayOne.innerHTML = days[firstDay];
   dayTwo.innerHTML = days[secondDay];
