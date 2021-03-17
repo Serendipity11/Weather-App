@@ -104,6 +104,12 @@ function displayWeek(res) {
   console.log(fifthDay, res.data.list[33].dt_txt);
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  dayOne.innerHTML = days[firstDay];
+  dayTwo.innerHTML = days[secondDay];
+  dayThree.innerHTML = days[thirdDay];
+  dayFour.innerHTML = days[forthDay];
+  dayFive.innerHTML = days[fifthDay];
 }
 
 // Current Location
