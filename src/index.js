@@ -255,6 +255,17 @@ function displayWeek(res) {
 // Current Location
 let currentLocation = document.querySelector(".location");
 
+function askLocation(event) {
+  event.preventDefault();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocation());
+  }
+}
+
+function getw(geo) {
+  console.log(geo);
+}
+
 function getLocation(position) {
   console.log(position);
   let lat = Math.round(position.coords.latitude);
@@ -267,12 +278,6 @@ function getLocation(position) {
     .get(`${apiUrl}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`)
     .then(getWeather);
 }
-
-function askLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getLocation);
-}
-
 currentLocation.addEventListener("click", askLocation);
 
 // Convert farenheit to celcius (32°F − 32) × 5/9 = 0°C
