@@ -118,7 +118,6 @@ function displayDefaultForecast(res) {
     res.data.list[36].weather[0].icon +
     ".png";
 }
-
 defaultWeather();
 
 // Search engine
