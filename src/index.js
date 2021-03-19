@@ -256,13 +256,6 @@ function displayWeek(res) {
 
 let currentLocation = document.querySelector(".location");
 
-function askLocation(event) {
-  event.preventDefault();
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getLocation);
-  }
-}
-
 function getLocation(position) {
   console.log(position);
   let lat = Math.round(position.coords.latitude);
@@ -273,7 +266,38 @@ function getLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
   axios
     .get(`${apiUrl}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`)
-    .then(getWeather);
+    .then(getCurrentWeather);
+}
+
+function askLocation(event) {
+  event.preventDefault();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocation);
+  } else {
+    alert("Unable to locate your current location");
+  }
+}
+
+function weekForecastCurrent(res) {
+  cityName = res.data.name;
+  let apiUrl = "https://api.openweathermap.org/data/2.5/forecast?";
+  console.log(cityName);
+  axios
+    .get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${units}`)
+    .then(displayWeek);
+}
+function getCurrentWeather(res) {
+  console.log(res);
+  sky.innerHTML = res.data.weather[0].main;
+  let iconcode = res.data.weather[0].icon;
+  let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+  locationIcon.src = iconurl;
+  temperature.innerHTML = Math.round(res.data.main.temp) + "°F";
+  humidity.innerHTML = Math.round(res.data.main.humidity);
+  pressure.innerHTML = Math.round(res.data.main.pressure);
+  wind.innerHTML = Math.round(res.data.wind.speed);
+  city.innerHTML = res.data.name;
+  weekForecastCurrent(res);
 }
 currentLocation.addEventListener("click", askLocation);
 
