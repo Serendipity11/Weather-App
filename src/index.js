@@ -18,9 +18,20 @@ day.innerHTML = currentDay;
 let time = document.querySelector("#time");
 
 function displayTime() {
+  let now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
-  time.innerHTML = `${hours}:${minutes}`;
+  let sec = now.getSeconds();
+  if (minutes < 10) {
+    time.innerHTML = `${hours}:0${minutes}`;
+  } else if (sec < 10) {
+    time.innerHTML = `${hours}:${minutes}:0${sec}`;
+  } else if ((sec < 10) & (minutes < 10)) {
+    time.innerHTML = `${hours}:0${minutes}:0${sec}`;
+  } else {
+    time.innerHTML = `${hours}:${minutes}:${sec}`;
+  }
+  setTimeout(displayTime, 1000);
 }
 displayTime();
 
