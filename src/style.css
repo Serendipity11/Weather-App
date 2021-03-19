@@ -14,8 +14,8 @@
 
 .weather-container {
   margin: 3rem 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
   border: 1px solid #464c52;
   box-shadow: 2px 4px 4px rgba(00, 00, 00, 0.5);
   padding: 2rem;
@@ -108,7 +108,8 @@ div .week {
 /* footer */
 .footer,
 .footer a {
-  color: white;
+  margin-top: 0;
+  color: #eceff5;
   margin: 0 auto;
   text-align: center;
   text-decoration: none;

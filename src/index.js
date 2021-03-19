@@ -253,17 +253,14 @@ function displayWeek(res) {
 }
 
 // Current Location
+
 let currentLocation = document.querySelector(".location");
 
 function askLocation(event) {
   event.preventDefault();
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getLocation());
+    navigator.geolocation.getCurrentPosition(getLocation);
   }
-}
-
-function getw(geo) {
-  console.log(geo);
 }
 
 function getLocation(position) {
