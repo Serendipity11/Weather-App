@@ -92,7 +92,7 @@ function displayDefaultForecast(res) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Satursday",
+    "Saturday",
   ];
 
   dayOne.innerHTML = days[firstDay];
