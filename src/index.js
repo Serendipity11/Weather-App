@@ -54,6 +54,7 @@ function getDefaultWeather(res) {
   humidity.innerHTML = Math.round(res.data.main.humidity);
   pressure.innerHTML = Math.round(res.data.main.pressure);
   wind.innerHTML = Math.round(res.data.wind.speed);
+  fahrenheitTemperature = res.data.main.temp;
   defaultForecast();
 }
 function defaultForecast() {
@@ -165,6 +166,8 @@ function getWeather(res) {
   pressure.innerHTML = Math.round(res.data.main.pressure);
   wind.innerHTML = Math.round(res.data.wind.speed);
   city.innerHTML = res.data.name;
+  fahrenheitTemperature = res.data.main.temp;
+
   getWeekForecast();
 }
 
@@ -308,36 +311,32 @@ function getCurrentWeather(res) {
   pressure.innerHTML = Math.round(res.data.main.pressure);
   wind.innerHTML = Math.round(res.data.wind.speed);
   city.innerHTML = res.data.name;
+  fahrenheitTemperature = res.data.main.temp;
+
   weekForecastCurrent(res);
 }
 currentLocation.addEventListener("click", askLocation);
 
-// Convert farenheit to celcius (32°F − 32) × 5/9 = 0°C
-
-let fahrenheit = document.querySelector("#fahrenheit");
+// Display Celcius
 let celsius = document.querySelector("#celsius");
-let temp = document.querySelector("#temperature");
-// let tempNumber = document.querySelector('#temp');
-let metric = document.querySelector("#metric");
 
-function convertToCelsius(event) {
+function displayCelsius(event) {
   event.preventDefault();
-
-  let tempNumber = document.querySelector("h1 span #temp-number");
-  console.log(tempNumber);
-  // let currentValue = document.tempNumber.innerHTML;
-  // tempNumber.innerHTML = Math.round((currentValue - 32) * 5 / 9);
-  // metric.innerHTML = '°C';
+  let temp = document.querySelector("#temperature");
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  temp.innerHTML = Math.round(celsiusTemperature) + "°C";
 }
 
-celsius.addEventListener("click", convertToCelsius);
+let fahrenheitTemperature;
 
-// Convert celcius to farenheit (0°C × 9/5) + 32 = 32°F
-function convertToFahrenheit(event) {
+celsius.addEventListener("click", displayCelsius);
+
+// Display Fahrenheit
+let fahrenheit = document.querySelector("#fahrenheit");
+function displayFahrenheit(event) {
   event.preventDefault();
-  let currentValue = tempNumber.innerHTML;
-  tempNumber.innerHTML = Math.round((currentValue * 9) / 5 + 32);
-  metric.innerHTML = "°F";
+  let temp = document.querySelector("#temperature");
+  temp.innerHTML = Math.round(fahrenheitTemperature) + "°F";
 }
 
-fahrenheit.addEventListener("click", convertToFahrenheit);
+fahrenheit.addEventListener("click", displayFahrenheit);
