@@ -28,6 +28,8 @@ function displayTime() {
     time.innerHTML = `${hours}:${minutes}:0${sec}`;
   } else if (sec < 10 && minutes < 10) {
     time.innerHTML = `${hours}:0${minutes}:0${sec}`;
+  } else if (sec < 10 && minutes > 10) {
+    time.innerHTML = `${hours}:${minutes}:0${sec}`;
   } else {
     time.innerHTML = `${hours}:${minutes}:${sec}`;
   }
