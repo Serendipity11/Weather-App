@@ -268,26 +268,26 @@ function displayWeek(res) {
   fiveTemp.innerHTML = Math.round(res.data.list[36].main.temp);
 
   oneIcon.src =
-    "http://openweathermap.org/img/w/" +
+    "http://openweathermap.org/img/wn/" +
     res.data.list[4].weather[0].icon +
-    ".png";
+    "@2x.png";
 
   twoIcon.src =
-    "http://openweathermap.org/img/w/" +
+    "http://openweathermap.org/img/wn/" +
     res.data.list[12].weather[0].icon +
-    ".png";
+    "@2x.png";
   threeIcon.src =
-    "http://openweathermap.org/img/w/" +
+    "http://openweathermap.org/img/wn/" +
     res.data.list[20].weather[0].icon +
-    ".png";
+    "@2x.png";
   fourIcon.src =
-    "http://openweathermap.org/img/w/" +
+    "http://openweathermap.org/img/wn/" +
     res.data.list[28].weather[0].icon +
-    ".png";
+    "@2x.png";
   fiveIcon.src =
-    "http://openweathermap.org/img/w/" +
+    "http://openweathermap.org/img/wn/" +
     res.data.list[36].weather[0].icon +
-    ".png";
+    "@2x.png";
 }
 
 // Current Location
@@ -328,8 +328,10 @@ function getCurrentWeather(res) {
   console.log(res);
   sky.innerHTML = res.data.weather[0].main;
   let iconcode = res.data.weather[0].icon;
-  let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-  locationIcon.src = iconurl;
+  locationIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconcode}@2x.png`
+  );
   temperature.innerHTML = Math.round(res.data.main.temp) + "°F";
   humidity.innerHTML = Math.round(res.data.main.humidity);
   pressure.innerHTML = Math.round(res.data.main.pressure);
