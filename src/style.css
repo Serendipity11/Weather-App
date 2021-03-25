@@ -24,7 +24,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   /* background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); */
   color: #eceff6;
-  text-shadow: 0.5px 0.5px 0.5px #a7c5eb;
+  /* text-shadow: 0.5px 0.5px 0.5px #a7c5eb; */
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -78,7 +78,7 @@ body {
 .humidity-info {
   text-align: center;
   margin-top: 1rem;
-  font-weight: lighter;
+  /* font-weight: lighter; */
 }
 
 #search-button {
@@ -109,7 +109,7 @@ div .week {
   text-align: center;
   font-size: 1.8rem;
   color: #eceff6;
-  text-shadow: 0.5px 0.5px 0.5px #a7c5eb;
+  /* text-shadow: 0.5px 0.5px 0.5px #a7c5eb; */
   size: 80%;
 }
 
