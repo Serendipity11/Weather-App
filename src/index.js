@@ -51,7 +51,6 @@ function getDefaultWeather(res) {
   console.log(res);
   sky.innerHTML = res.data.weather[0].main;
   let iconcode = res.data.weather[0].icon;
-  // locationIcon.src = "http://openweathermap.org/img/w/" + iconcode + ".png";
   locationIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${iconcode}@2x.png`
@@ -171,7 +170,7 @@ function getWeather(res) {
   console.log(res);
   sky.innerHTML = res.data.weather[0].main;
   let iconcode = res.data.weather[0].icon;
-  let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+  let iconurl = `http://openweathermap.org/img/wn/${iconcode}@2x.png`;
   locationIcon.src = iconurl;
   temperature.innerHTML = Math.round(res.data.main.temp) + "°F";
   humidity.innerHTML = Math.round(res.data.main.humidity);
