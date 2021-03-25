@@ -102,6 +102,12 @@ function displayDefaultForecast(res) {
   dayFour.innerHTML = days[forthDay];
   dayFive.innerHTML = days[fifthDay];
 
+  fahrenheitOneTemp = Math.round(res.data.list[4].main.temp);
+  fahrenheitTwoTemp = Math.round(res.data.list[12].main.temp);
+  fahrenheitThreeTemp = Math.round(res.data.list[20].main.temp);
+  fahrenheitFourTemp = Math.round(res.data.list[28].main.temp);
+  fahrenheitFiveTemp = Math.round(res.data.list[36].main.temp);
+
   oneTemp.innerHTML = Math.round(res.data.list[4].main.temp);
   twoTemp.innerHTML = Math.round(res.data.list[12].main.temp);
   threeTemp.innerHTML = Math.round(res.data.list[20].main.temp);
@@ -199,6 +205,12 @@ function getWeekForecast() {
     .then(displayWeek);
 }
 
+let fahrenheitOneTemp;
+let fahrenheitTwoTemp;
+let fahrenheitThreeTemp;
+let fahrenheitFourTemp;
+let fahrenheitFiveTemp;
+
 function displayWeek(res) {
   console.log(res);
   let firstDate = new Date(res.data.list[4].dt * 1000);
@@ -236,6 +248,12 @@ function displayWeek(res) {
   dayThree.innerHTML = days[thirdDay];
   dayFour.innerHTML = days[forthDay];
   dayFive.innerHTML = days[fifthDay];
+
+  fahrenheitOneTemp = Math.round(res.data.list[4].main.temp);
+  fahrenheitTwoTemp = Math.round(res.data.list[12].main.temp);
+  fahrenheitThreeTemp = Math.round(res.data.list[20].main.temp);
+  fahrenheitFourTemp = Math.round(res.data.list[28].main.temp);
+  fahrenheitFiveTemp = Math.round(res.data.list[36].main.temp);
 
   oneTemp.innerHTML = Math.round(res.data.list[4].main.temp);
   twoTemp.innerHTML = Math.round(res.data.list[12].main.temp);
@@ -325,6 +343,19 @@ function displayCelsius(event) {
   let temp = document.querySelector("#temperature");
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
   temp.innerHTML = Math.round(celsiusTemperature) + "°C";
+  oneTemp.innerHTML = Math;
+
+  let celsiusDayOne = ((fahrenheitOneTemp - 32) * 5) / 9;
+  let celsiusDayTwo = ((fahrenheitTwoTemp - 32) * 5) / 9;
+  let celsiusDayThree = ((fahrenheitThreeTemp - 32) * 5) / 9;
+  let celsiusDayFour = ((fahrenheitFourTemp - 32) * 5) / 9;
+  let celsiusDayFive = ((fahrenheitFiveTemp - 32) * 5) / 9;
+
+  oneTemp.innerHTML = Math.round(celsiusDayOne);
+  twoTemp.innerHTML = Math.round(celsiusDayTwo);
+  threeTemp.innerHTML = Math.round(celsiusDayThree);
+  fourTemp.innerHTML = Math.round(celsiusDayFour);
+  fiveTemp.innerHTML = Math.round(celsiusDayFive);
 }
 
 let fahrenheitTemperature;
@@ -337,6 +368,11 @@ function displayFahrenheit(event) {
   event.preventDefault();
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round(fahrenheitTemperature) + "°F";
+  oneTemp.innerHTML = fahrenheitOneTemp;
+  twoTemp.innerHTML = fahrenheitTwoTemp;
+  threeTemp.innerHTML = fahrenheitThreeTemp;
+  fourTemp.innerHTML = fahrenheitFourTemp;
+  fiveTemp.innerHTML = fahrenheitFiveTemp;
 }
 
 fahrenheit.addEventListener("click", displayFahrenheit);
