@@ -122,7 +122,8 @@ div .week {
 .footer,
 .footer a {
   margin-top: 0;
-  color: #eceff5;
+  /* color: #eceff5; */
+  color: #9ea051;
   margin: 0 auto;
   text-align: center;
   text-decoration: none;
